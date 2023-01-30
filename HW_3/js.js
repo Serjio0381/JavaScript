@@ -66,15 +66,14 @@
 // 4. Деление
 // Необходимо сделать так, чтобы функция вернула число, например выражение console.log(sum(2, 6)); должно вывести число 8 в консоль (sum - функция сложения в данном примере, ваши названия функций могут отличаться). Округлять значения, которые возвращают функции не нужно, однако, обратите внимание на разность, функция должна вычесть из большего числа меньшее, либо вернуть 0, если числа равны. Функциям всегда передаются корректные числа, проверки на NaN, Infinity делать не нужно.
 
-
 // function doSum(arg1, arg2) {
 //     console.log(`Сумма чисел ${arg1} и ${arg2} равна ${arg1 + arg2}`);
 //     } 
 // function doSubtraction(arg1, arg2) {
 //     if (arg1 > arg2) {
-//     console.log(`Разность чисел ${arg1} и ${arg2} равна ${arg1 - arg2}`); 
+//     console.log(`Разность чисел ${arg1} и ${arg2} равна ${arg1 - arg2}`);// почему то желтые скобки 
 //     } else {
-//     console.log(`Разность чисел ${arg1} и ${arg2} равна ${arg2 - arg1}`);
+//     console.log(`Разность чисел ${arg1} и ${arg2} равна ${arg2 - arg1}`);// почему то желтые скобки
 //     } 
 //     }
 // function doMultiplication(arg1, arg2) {
@@ -89,33 +88,6 @@
 // doSubtraction(num1, num2);
 // doMultiplication(num1, num2);
 // doDivision(num1, num2);
-
-
-
-
-
-function doSum(arg1, arg2) {
-    console.log(`Сумма чисел ${arg1} и ${arg2} равна ${arg1 + arg2}`);
-    } 
-function doSubtraction(arg1, arg2) {
-    if (arg1 > arg2) {
-    console.log(`Разность чисел ${arg1} и ${arg2} равна ${arg1 - arg2}`);// почему то желтые скобки 
-    } else {
-    console.log(`Разность чисел ${arg1} и ${arg2} равна ${arg2 - arg1}`);// почему то желтые скобки
-    } 
-    }
-function doMultiplication(arg1, arg2) {
-    console.log(`Произведение чисел ${arg1} и ${arg2} равно ${arg1 * arg2}`);
-    }
-function doDivision(arg1, arg2) {
-    console.log(`Частное чисел ${arg1} и ${arg2} равно ${arg1 / arg2}`);
-    }
-let num1 = Number(prompt("Введите первое число"));
-let num2 = Number(prompt("Введите второе число"));
-doSum(num1, num2);
-doSubtraction(num1, num2);
-doMultiplication(num1, num2);
-doDivision(num1, num2);
 
 
 
