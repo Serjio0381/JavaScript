@@ -37,7 +37,10 @@ content.
 
 // 2. Внутри всех элементов на странице, которые имеют класс "card-link", поменяйте текст внутри элемента на "ссылка".
 // const changeTextLink = document.querySelectorAll('.card-link');
-// changeTextLink.textContent = 'ссылка';               // не работает
+// // changeTextLink.textContent = 'ссылка';               // OK
+// changeTextLink.forEach(elem => {
+//     elem.textContent = 'ссылка';    
+// });
 
 
 
@@ -49,8 +52,8 @@ content.
 
 
 // 4. Найти первый попавшийся элемент на странице у которого есть атрибут data-number со значением 50 и вывести его в консоль.
-// const datNumfifty = document.querySelector('data-number' = 50);
-// console.log(datNumfifty);  // не работает
+const datNumfifty = document.querySelector('[data-number = "50"]');
+console.log(datNumfifty);  // не работает
 
 
 
