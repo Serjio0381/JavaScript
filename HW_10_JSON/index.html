@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="data.js" ></script>
+    <script>
+//  Урок 10. Шаблонизация и работа с JSON
+
+// Задание 1
+// 1. Поиск в интернете (бесплатные api примеры).
+// 2. Найти любые данные, на произвольную тему.
+// 3. Создать файл data.js.
+// 4. Создать переменную которая будет хранить данные из публичных api.
+
+// Задание 2
+// 1. Создать файл index.html.
+// 2. Подключить data.js.
+// 3. Сформировать контент из данных (картинка загловок и параграф).
+// 4. Добавить данный контент в вёрстку.
+// 5. * Добавить стили при необходимости (по желанию).
+const dataPokemElems = JSON.parse(dataPokemon);
+console.log(dataPokemElems);
+const contentEl = document.createElement('div');
+document.body.append(contentEl);
+contentEl.classList.add('content');
+
+
+// здесь я назначил переменные , чтобы выводить названия ключей в заголовки (я писал вам в телеграм по этому вопросу, так и не вспомнил как это можно сделать проше , поэтому решил сделать через переменные)
+const abilitiesEls = Object.keys(dataPokemElems.abilities[0]);
+console.log(abilitiesEls[0]);
+const abilitiesEls2 = Object.keys(dataPokemElems.abilities[1]);
+console.log(abilitiesEls2[0]);
+
+
+// header h1
+const headerEl = document.createElement('h1');
+headerEl.classList.add('header__h1');
+headerEl.textContent = `${abilitiesEls[0]}`;
+headerEl.style.textAlign = 'center';
+headerEl.style.border = '3px solid blue';
+headerEl.style.backgroundColor = 'aqua';
+contentEl.append(headerEl);
+
+
+
+
+const nameElement = document.createElement('p');
+contentEl.append(nameElement);
+nameElement.textContent = `${dataPokemElems.abilities[0].ability.name}`;
+
+const urlElement = document.createElement('p');
+contentEl.append(urlElement);
+urlElement.textContent = `${dataPokemElems.abilities[0].ability.url}`;
+
+const is_hiddenElement = document.createElement('p');
+contentEl.append(is_hiddenElement);
+is_hiddenElement.textContent = `${dataPokemElems.abilities[0].is_hidden}`;
+
+const slotElement = document.createElement('p');
+contentEl.append(slotElement);
+slotElement.textContent = `${dataPokemElems.abilities[0].slot}`;
+
+
+
+
+
+
+// header h1
+const headerEl2 = document.createElement('h1');
+headerEl2.classList.add('header__h1');
+headerEl2.textContent = `${abilitiesEls2[0]}`;
+headerEl2.style.textAlign = 'center';
+headerEl2.style.border = '3px solid blue';
+headerEl2.style.backgroundColor = 'aqua';
+contentEl.append(headerEl2);
+
+
+const nameElement2 = document.createElement('p');
+contentEl.append(nameElement2);
+nameElement2.textContent = `${dataPokemElems.abilities[1].ability.name}`;
+
+const urlElement2 = document.createElement('p');
+contentEl.append(urlElement2);
+urlElement2.textContent = `${dataPokemElems.abilities[1].ability.url}`;
+
+const is_hiddenElement2 = document.createElement('p');
+contentEl.append(is_hiddenElement2);
+is_hiddenElement2.textContent = `${dataPokemElems.abilities[1].is_hidden}`;
+
+const slotElement2 = document.createElement('p');
+contentEl.append(slotElement2);
+slotElement2.textContent = `${dataPokemElems.abilities[1].slot}`;
+
+const beElement = document.createElement('p');
+contentEl.append(beElement);
+beElement.textContent = `${dataPokemElems.base_experience}`;
+
+
+
+    </script>
+</body>
+</html>
