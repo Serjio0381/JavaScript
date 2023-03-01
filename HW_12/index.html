@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="content">
+        <div class="current">Текущее время:
+            <span class="currentTime">0</span>
+        </div>
+        <div class="player">
+            <video class="video" src="https://webcode.tools/media/video.mp4"></video>
+        </div>  
+            <div class="buttons">
+                <img src="img/backward.png" class="backward icons" width="70">
+                <img src="img/play.png" class="play icons" width="70">
+                <img src="img/forward.png" class="forward icons" width="70">
+                <img src="img/pause.png" class="pause icons" width="70">
+                <img src="img/stop.png" class="stop icons" width="70">
+                <img src="img/sound.png" class="sound icons" width="70">
+                <input type="range" class="forwardLine" value="0" step="0.01">
+            </div>
+        <div class="nextVideos"></div>
+    </div>
+
+
+    <script src="data.js" ></script>
+    <script>
+       const dataVideoItems = JSON.parse(dataVideo);
+
+       const playerEl = document.querySelector('.player');
+       const nextVideosEl = document.querySelector('.nextVideos');
+
+       dataVideoItems.forEach(element => {           //цикл для добавления видео
+
+           const addVideo = document.createElement('div');
+            addVideo.classList.add('addVideo');
+            nextVideosEl.appendChild(addVideo);       
+            
+            const createVideo = document.createElement('video');
+            createVideo.classList.add('videoCreate');
+            addVideo.appendChild(createVideo);       
+            createVideo.src = element.src;
+
+            const videoName = document.createElement('h3');
+            videoName.textContent = element.name;
+            addVideo.appendChild(videoName);
+
+            const videoDescription = document.createElement('p');
+            videoDescription.textContent = element.desctiption;
+            addVideo.appendChild(videoDescription);
+
+            createVideo.addEventListener('mouseover', function (e) {
+                createVideo.style.border = "3px solid #ddd";
+            });
+            createVideo.addEventListener('mouseleave', function (e) {
+                createVideo.style.border = '3px solid #09d9f5';
+            });
+            createVideo.addEventListener('click', function (e) {
+                createVideo.play();
+            });
+        });
+       
+        const videoEl = document.querySelector('.video');
+        const videoEl2 = document.querySelector('.video2');
+        const playButt = document.querySelector('.play');//кнопка плей
+        const pauseButt = document.querySelector('.pause');//кнопка пауза
+        const stopButt = document.querySelector('.stop');// кнопка стоп
+        const forwardButt = document.querySelector('.forward');// кнопка вперед
+        const volumeButt = document.querySelector('.forwardLine');// кнопка громкости
+        const currTime = document.querySelector('.currentTime'); // строка текущего времени
+        const backwardButt = document.querySelector('.backward'); //кнопка назад
+        const buttonsEls = document.querySelectorAll('.icons'); //иконки кнопок
+
+        // console.log(buttonsEls);// рабочая проверка
+        
+        videoEl.addEventListener('mouseover', function (e) {
+            videoEl.style.opacity = 0.7;
+        });
+        videoEl.addEventListener('mouseleave', function (e) {
+            videoEl.style.opacity = 1;
+        });
+
+
+        // события с нажатием на кнопки
+        playButt.addEventListener('click', function (e) {
+            videoEl.play();
+        });
+        pauseButt.addEventListener('click', function (e) {
+            videoEl.pause();
+        });
+        stopButt.addEventListener('click', function (e) {
+            videoEl.pause();
+            videoEl.currentTime = 0;
+        });
+        volumeButt.addEventListener('input', function (value) {
+            videoEl.vokume = volumeButt.value;
+        });
+        videoEl.addEventListener('timeupdate', function (e) {
+            currTime.innerText = videoEl.currentTime;
+        });
+
+        forwardButt.addEventListener('click', function() {
+            videoEl.currentTime += 2;
+        });
+        backwardButt.addEventListener('click', function() {
+            videoEl.currentTime -= 2;
+        });
+       
+        
+        // события с кнопками (наведение мыши)
+        buttonsEls.forEach(element => {
+            element.addEventListener('mouseover', function (e) {
+                element.style.opacity = 0.7;
+            });
+            element.addEventListener('mouseleave', function (e) {
+                element.style.opacity = 1;
+            }); 
+       });
+         
+// Урок 12. Основы работы с API, итоги курса
+// Доделать видео плеер.
+// Полностью стилизовать его
+// Желательно, чтобы видеоплеер комфортно открывался и работал на разных       устройствах.
+
+// Необязательное задание
+// Нужно сделать свой youtube
+// С помощью JSON - объекта (как в прошлом задании) - добавить на сайт миниатюры 3-4 видео - с графой наименования, фото, описания.
+// При клике должно воспроизводиться в нашем плеере выбранное видео
+
+
+    </script>
+</body>
+</html>
