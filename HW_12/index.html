@@ -51,18 +51,18 @@
             addVideo.appendChild(videoName);
 
             const videoDescription = document.createElement('p');
-            videoDescription.textContent = element.desctiption;
+            videoDescription.textContent = element.description;
             addVideo.appendChild(videoDescription);
 
             createVideo.addEventListener('mouseover', function (e) {
+                createVideo.play();
                 createVideo.style.border = "3px solid #ddd";
             });
             createVideo.addEventListener('mouseleave', function (e) {
                 createVideo.style.border = '3px solid #09d9f5';
+                createVideo.pause();
             });
-            createVideo.addEventListener('click', function (e) {
-                createVideo.play();
-            });
+            
         });
        
         const videoEl = document.querySelector('.video');
